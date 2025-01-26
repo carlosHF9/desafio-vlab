@@ -34,6 +34,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatPaginatorModule,
     AnalysisRoutingModule,
     HttpClientModule
+  ],
+  exports: [
+    AnalysisComponent
   ]
 })
 export class AnalysisModule { }

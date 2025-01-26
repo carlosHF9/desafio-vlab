@@ -1,9 +1,12 @@
 #app-header {
-    display: inline-flex;
-    
+    display: flex;
+
     .logo-image {
-        width: 10em;
+      width: 10em;
+      filter: brightness(0) invert(1);
     }
+
+
 
     span {
         cursor: pointer;

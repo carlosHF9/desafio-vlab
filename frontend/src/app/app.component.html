@@ -1,2 +1,25 @@
-<app-header></app-header>
-<router-outlet></router-outlet>
+<div class="main-page-container">
+  <app-header></app-header>
+  <div class="subpage-container">
+    <div class="page-label">
+      <mat-icon> dataset </mat-icon>
+      <h2 class="subpage-title">Visualização de dados</h2>
+    </div>
+    <mat-tab-group mat-stretch-tabs="false">
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">account_tree</mat-icon>
+          Fluxogramas
+        </ng-template>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+          Análise de Processo
+        </ng-template>
+        <app-analysis></app-analysis>
+      </mat-tab>
+    </mat-tab-group>
+    <router-outlet></router-outlet>
+  </div>
+</div>

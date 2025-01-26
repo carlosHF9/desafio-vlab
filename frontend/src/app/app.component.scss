@@ -1,0 +1,18 @@
+.main-page-container {
+  .subpage-title {
+    font-weight: 400;
+  }
+  .subpage-container {
+    padding-left: 1em;
+
+    .page-label {
+      display: flex;
+      align-items: center;
+      gap: .5em;
+    }
+  }
+
+  .example-tab-icon {
+    padding-right: .5em;
+  }
+}
