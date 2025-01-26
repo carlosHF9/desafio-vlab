@@ -1,0 +1,21 @@
+.flowchart-container {
+  .container-title {
+    font-weight: 300;
+  }
+
+
+  .warning-box {
+    display: flex;
+    align-items: center;
+    .warning {
+      max-width: 500px;
+      font-size: .8em;
+    }
+
+    .warning-icon {
+      min-width: 1em;
+    }
+  }
+
+
+}

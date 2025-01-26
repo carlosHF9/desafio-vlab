@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AnalysisComponent } from './pages/analysis/analysis.component';
+
 import { AnalysisState } from './state/analysis-state/analysis.state';
 import { AnalysisApi } from './api/analysis.api';
 import { AnalysisFacade } from './analysis.facade';
@@ -13,6 +14,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { HttpClientModule } from '@angular/common/http';
+import { FlowChartsComponent } from './pages/flow-charts/flow-charts.component';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   providers: [
@@ -24,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AnalysisComponent,
     AnalysisTableComponent,
+    FlowChartsComponent
   ],
   imports: [
     CommonModule,
@@ -32,11 +37,14 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     MatTableModule,
     MatPaginatorModule,
+    MatChipsModule,
     AnalysisRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
   ],
   exports: [
-    AnalysisComponent
+    AnalysisComponent,
+    FlowChartsComponent
   ]
 })
 export class AnalysisModule { }
