@@ -11,7 +11,7 @@ export class ImageApiService {
     ) { }
 
 	public getFlowGraph() {
-		return this.http.get('/visualization/image/', {
+		return this.http.get('http://localhost:8000/api/visualization/image/', {
 			responseType: 'text',
         }).pipe(take(1),
                 map((res: string) =>

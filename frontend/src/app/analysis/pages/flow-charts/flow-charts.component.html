@@ -1,19 +1,14 @@
 <div class="flowchart-container">
   <h3 class="container-title">Fluxogramas disponíveis</h3>
-
-  <mat-chip-listbox aria-label="Fish selection" >
-    <mat-chip-option   *ngFor="let size of availableSizes" [selected]="size.name == selectedSize" (click)="selectSize(size.name)">{{ size.name }}</mat-chip-option>
-  </mat-chip-listbox>
   <div class="warning-box">
     <mat-icon class="warning-icon">question_mark</mat-icon>
-    <p class="warning">Observe que os arquivos baixados estarão no formato XML. Utilize uma ferramenta para facilitar com este formato</p>
+    <p class="warning">Observe que o arquivo baixado estará no formato SVG. Utilize uma ferramenta para facilitar a visualização de SVGs</p>
   </div>
   <div class="example-button-row">
     <button  (click)="downloadFlowchart()" mat-raised-button color="primary">
       Baixar
       <mat-icon class="warning-icon">file_download</mat-icon>
     </button>
-
   </div>
 
 
