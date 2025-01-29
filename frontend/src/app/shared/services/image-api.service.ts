@@ -18,4 +18,10 @@ export class ImageApiService {
                     this.sanitizer.bypassSecurityTrustHtml(res)
         ));
 	}
+
+  public getFlowGraphProcessStatus() {
+    return this.http.get('http://localhost:8000/api/processos/stats/', {
+			responseType: 'json',
+        })
+  }
 }

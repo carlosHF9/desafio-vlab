@@ -1,15 +1,42 @@
 <div class="flowchart-container">
-  <h3 class="container-title">Fluxogramas disponíveis</h3>
-  <div class="warning-box">
-    <mat-icon class="warning-icon">question_mark</mat-icon>
-    <p class="warning">Observe que o arquivo baixado estará no formato SVG. Utilize uma ferramenta para facilitar a visualização de SVGs</p>
-  </div>
-  <div class="example-button-row">
-    <button  (click)="downloadFlowchart()" mat-raised-button color="primary">
-      Baixar
-      <mat-icon class="warning-icon">file_download</mat-icon>
-    </button>
-  </div>
+  <mat-card *ngIf="processoStats" class="process-status-info">
+    <div class="process-status">
+      <span class="process-status-description">Quantidade de movimentos</span>
+      <h3 class="process-status-value">
+        {{ processoStats.movimentosCount
+
+      }}
+      </h3>
+    </div>
+    <div class="process-status">
+      <span class="process-status-description">Quantidade de Processos</span>
+      <h3 class="process-status-value">
+        {{ processoStats.casesCount
+      }}
+
+      </h3>
+    </div>
 
 
+    <div class="process-status">
+      <span class="process-status-description">Número de Grupos de Processos</span>
+      <h3 class="process-status-value"> {{ processoStats.avgMovimentosPerCase
+      }}</h3>
+    </div>
+    <div class="process-status">
+
+
+      <span class="process-status-description">Média de duração dos processos</span>
+      <h3 class="process-status-value">{{ processoStats.avgMovimentoDuration
+      }}</h3>
+
+
+    </div>
+    <div class="process-status">
+      <span class="process-status-description">Média de movimentos por processos</span>
+      <h3 class="process-status-value">{{ processoStats.avgCaseDuration
+      }}</h3>
+    </div>
+  </mat-card>
+  <div #svgcontainer [innerHTML]="svg"></div>
 </div>

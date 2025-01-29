@@ -3,7 +3,6 @@
 
     .logo-image {
       width: 10em;
-      filter: brightness(0) invert(1);
     }
 
 
@@ -14,10 +13,6 @@
         align-items: center;
         gap: 0.5em;
         padding: 0 2em;
-    }
-
-    span:hover {
-        background-color: #e6e6e6;
     }
 
     p {

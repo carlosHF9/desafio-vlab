@@ -1,48 +1,68 @@
-import { Component, SecurityContext } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import {  Component, ElementRef, OnInit,  Renderer2, ViewChild } from '@angular/core';
+import {  SafeHtml } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { ImageApiService } from 'src/app/shared/services/image-api.service';
+import { ProcessoStats } from '../../types/Processo';
 
 @Component({
   selector: 'app-flow-charts',
   templateUrl: './flow-charts.component.html',
-  styleUrls: ['./flow-charts.component.scss']
+  styleUrls: ['./flow-charts.component.scss'],
 })
-export class FlowChartsComponent   {
-  availableSizes = [
-    {name: 'Pequeno', color: 'primary'},
-    {name: 'Médio', color: 'accent'},
-    {name: 'Grande', color: 'warn'},
-  ];
+export class FlowChartsComponent implements OnInit {
+  svg: SafeHtml = '';
+  selectedActivity: String = '';
+  processoStats!: ProcessoStats;
 
-  selectedSize: String = 'Pequeno'
-  flowChart: SafeHtml = '';
-
+  @ViewChild('svgcontainer', { static: true }) svgcontainer!: ElementRef<HTMLInputElement>;
   constructor(
     private api: ImageApiService,
-    private sanitizer: DomSanitizer
-
+    private el: ElementRef,
+    private renderer: Renderer2,
+    private router: Router
   ) {
 
   }
-  public selectSize(size: string) {
-    this.selectedSize = size;
+
+  public addEventsToFlowChart = () => {
+    const baloonNodes = this.svgcontainer.nativeElement.querySelectorAll('.node')
+    baloonNodes.forEach((node) => {
+      const useElement = this.renderer.createElement('use');
+      this.renderer.setAttribute(useElement, 'href', '../../../assets/information');
+      this.renderer.appendChild(node, useElement);
+
+      const activityName = node.childNodes[3].childNodes[0].childNodes[3].textContent
+      this.renderer.listen(node, 'mouseover', () => {
+        this.renderer.setStyle(node, 'cursor', 'pointer')
+      })
+
+      this.renderer.listen(node, 'mouseleave', () => {
+        this.renderer.setStyle(node, 'cursor', 'default');
+      })
+
+      this.renderer.listen(node, 'click', () => {
+        this.selectedActivity = activityName as String;
+        this.selectAndNavigateToProcesses(this.selectedActivity)
+      })
+
+    })
   }
 
-  public downloadFlowchart() {
-    this.api.getFlowGraph().subscribe((res) => {
-      const svgString = this.sanitizer.sanitize(SecurityContext.HTML, res);
-      if (svgString) {
-        const blob = new Blob([svgString], { type: 'image/svg+xml' });
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'flow-graph.svg';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        window.URL.revokeObjectURL(url);
-      }
+  public selectAndNavigateToProcesses = (atividadeSelecionada: String) => {
+    this.router.navigate(['/analysis', atividadeSelecionada]);
+  }
+
+  ngOnInit() {
+    this.api.getFlowGraphProcessStatus().subscribe((res: any) => {
+      this.processoStats = res[0];
+      console.log(res)
+    })
+    this.api.getFlowGraph().subscribe((res: any) => {
+      this.svg = res;
+      setTimeout(this.addEventsToFlowChart, 100)
     });
-  }
 
+  }
 }
+
+

@@ -4,3 +4,11 @@ export interface Processo {
     totalDuration: number;
     totalMovimentos: number;
 }
+
+export interface ProcessoStats {
+    avgCaseDuration: number;
+    avgMovimentoDuration: number;
+    avgMovimentosPerCase: number;
+    casesCount: number;
+    movimentosCount: number;
+}
