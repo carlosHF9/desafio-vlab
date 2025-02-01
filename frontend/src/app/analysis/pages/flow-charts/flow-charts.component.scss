@@ -3,32 +3,7 @@
     font-weight: 300;
   }
 
-  .process-status-info {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    padding: 1em 1em;
-    margin-bottom: 2em;
 
-    .process-status {
-      display: flex;
-      flex-direction: column;
-      gap: .5em;
-        .process-status-description {
-          font-weight: lighter;
-          font-size: 1em;
-          color: rgb(85, 84, 84);
-        }
-
-        .process-status-value {
-          font-weight: bolder;
-          font-size: 1.7em;
-          color: rgb(70, 69, 69);
-          font-weight: 500;
-          margin: 0;
-        }
-    }
-  }
 
   .warning-box {
     display: flex;

@@ -1,11 +1,13 @@
 <mat-toolbar id="app-header">
   <img class="logo-image" src="../../../../assets/logo.webp" alt="">
-<span [routerLink]="['/flow-graph/']">
-  <mat-icon> account_tree </mat-icon>
-  <p> Fluxograma </p>
-</span>
-<span [routerLink]="['/analysis/']">
-    <mat-icon> cases </mat-icon>
-    <p> Análise de processos </p>
-</span>
+  <div class="nav-buttons">
+    <span [routerLink]="['/flow-graph/']" routerLinkActive="activate-link">
+      <mat-icon> account_tree </mat-icon>
+      <p> Fluxograma </p>
+    </span>
+    <span [routerLink]="['/analysis/']" routerLinkActive="activate-link">
+        <mat-icon> cases </mat-icon>
+        <p> Análise de processos </p>
+    </span>
+  </div>
 </mat-toolbar>

@@ -1,0 +1,40 @@
+<mat-card *ngIf="processoStats" class="process-status-info">
+  <h3>Informações do Processo</h3>
+  <div class="process-status">
+    <span class="process-status-description">Quantidade de movimentos</span>
+    <h3 class="process-status-value">
+      {{ processoStats.movimentosCount | number:'1.0-0'
+
+    }}
+    </h3>
+  </div>
+  <div class="process-status">
+    <span class="process-status-description">Quantidade de Processos</span>
+    <h3 class="process-status-value">
+      {{ processoStats.casesCount | number:'1.0-0'
+    }}
+
+    </h3>
+  </div>
+
+
+  <div class="process-status">
+    <span class="process-status-description">Número de Grupos de Processos</span>
+    <h3 class="process-status-value"> {{ processoStats.avgMovimentosPerCase | number:'1.0-0'
+    }}</h3>
+  </div>
+  <div class="process-status">
+
+
+    <span class="process-status-description">Média de duração dos processos</span>
+    <h3 class="process-status-value">{{ processoStats.avgMovimentoDuration | number:'1.0-0'
+    }}</h3>
+
+
+  </div>
+  <div class="process-status">
+    <span class="process-status-description">Média de movimentos por processos</span>
+    <h3 class="process-status-value">{{ processoStats.avgCaseDuration | number:'1.0-0'
+    }}</h3>
+  </div>
+</mat-card>

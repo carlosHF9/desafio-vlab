@@ -1,22 +1,44 @@
 #app-header {
     display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    align-items: start;
+
+    @media(min-width: 560px) {
+      flex-direction: row;
+    }
+
+    .activate-link {
+      color: black;
+    }
 
     .logo-image {
       width: 10em;
     }
 
+    .nav-buttons {
+      display: flex;
+      gap: 3em;
+      margin-left: 1em;
+      color: darkgray;
 
+      @media(min-width: 560px) {
+        margin-left: 2em;
+      }
+      span {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          gap: 0.5em;
+          padding: 0;
 
-    span {
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 0.5em;
-        padding: 0 2em;
+      }
+
+      p {
+          font-size: large;
+          font-weight: 500;
+      }
     }
 
-    p {
-        font-size: large;
-        font-weight: 500;
-    }
 }

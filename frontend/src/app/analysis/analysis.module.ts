@@ -17,6 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FlowChartsComponent } from './pages/flow-charts/flow-charts.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatButtonModule } from '@angular/material/button';
+import { FlowGraphComponent } from './components/flow-graph/flow-graph.component';
+import { ProcessStatusComponent } from './components/process-status/process-status.component';
 
 @NgModule({
   providers: [
@@ -28,7 +30,9 @@ import { MatButtonModule } from '@angular/material/button';
   declarations: [
     AnalysisComponent,
     AnalysisTableComponent,
-    FlowChartsComponent
+    FlowChartsComponent,
+    FlowGraphComponent,
+    ProcessStatusComponent
   ],
   imports: [
     CommonModule,
@@ -44,7 +48,8 @@ import { MatButtonModule } from '@angular/material/button';
   ],
   exports: [
     AnalysisComponent,
-    FlowChartsComponent
+    FlowChartsComponent,
+    ProcessStatusComponent
   ]
 })
 export class AnalysisModule { }

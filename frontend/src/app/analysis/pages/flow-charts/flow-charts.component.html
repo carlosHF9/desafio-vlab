@@ -1,42 +1,4 @@
 <div class="flowchart-container">
-  <mat-card *ngIf="processoStats" class="process-status-info">
-    <div class="process-status">
-      <span class="process-status-description">Quantidade de movimentos</span>
-      <h3 class="process-status-value">
-        {{ processoStats.movimentosCount
-
-      }}
-      </h3>
-    </div>
-    <div class="process-status">
-      <span class="process-status-description">Quantidade de Processos</span>
-      <h3 class="process-status-value">
-        {{ processoStats.casesCount
-      }}
-
-      </h3>
-    </div>
-
-
-    <div class="process-status">
-      <span class="process-status-description">Número de Grupos de Processos</span>
-      <h3 class="process-status-value"> {{ processoStats.avgMovimentosPerCase
-      }}</h3>
-    </div>
-    <div class="process-status">
-
-
-      <span class="process-status-description">Média de duração dos processos</span>
-      <h3 class="process-status-value">{{ processoStats.avgMovimentoDuration
-      }}</h3>
-
-
-    </div>
-    <div class="process-status">
-      <span class="process-status-description">Média de movimentos por processos</span>
-      <h3 class="process-status-value">{{ processoStats.avgCaseDuration
-      }}</h3>
-    </div>
-  </mat-card>
-  <div #svgcontainer [innerHTML]="svg"></div>
+  <app-process-status *ngIf="processoStats" [processoStats]="processoStats"></app-process-status>
+  <app-flow-graph *ngIf="svg" [svg]="svg" ></app-flow-graph>
 </div>
