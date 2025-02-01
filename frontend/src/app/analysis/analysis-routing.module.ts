@@ -6,13 +6,18 @@ import { FlowChartsComponent } from './pages/flow-charts/flow-charts.component';
 
 const routes: Routes = [
   {
-    path: 'analysis/:atividadeSelecionada',
-    component: AnalysisComponent,
+    path: '',
+    redirectTo: '/flow-graph',
+    pathMatch: 'full'
   },
   {
     path: 'flow-graph',
     component: FlowChartsComponent,
-  }
+  },
+  {
+    path: 'analysis/:atividadeSelecionada',
+    component: AnalysisComponent,
+  },
 ];
 
 @NgModule({
